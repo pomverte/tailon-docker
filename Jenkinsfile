@@ -1,4 +1,4 @@
 #!groovy
 dockerPipeline {
-  pushDockerImage = 'false'
+  pushDockerImage = 'true'
 }
