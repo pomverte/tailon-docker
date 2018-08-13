@@ -9,3 +9,5 @@ RUN apk update \
 
 RUN rm -f /usr/bin/awk /bin/grep \
     && rm -rf /var/cache/apk/*
+
+CMD tailon -c /etc/tailon/tailon-config.yml

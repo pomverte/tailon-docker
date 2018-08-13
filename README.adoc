@@ -1,0 +1,30 @@
+= Tailon
+
+https://tailon.readthedocs.io
+
+== Start Service
+
+=== Docker CLI
+
+ docker container run -it -v /path/to/tailon-config.yml:/etc/tailon/tailon-config.yml --name tailon vietnem/tailon:latest
+
+=== Docker Compose
+
+.docker-compose.yml
+[source,yaml]
+----
+---
+version: '3'
+services:
+  tailon:
+    build: .
+    image: vietnem/tailon:latest
+    container_name: tailon
+    ports:
+      - "80:80"
+    volumes:
+      - /tailon/logs:/logs
+      - /tailon/tailon-config.yml:/etc/tailon/tailon-config.yml
+----
+
+ docker-compose up -d
