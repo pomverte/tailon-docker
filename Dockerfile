@@ -4,12 +4,10 @@ VOLUME /logs
 EXPOSE 80
 
 RUN apk update \
-    && apk add grep gawk \
-    && apk add curl \
+    && apk --no-cache add grep gawk curl \
     && pip install tailon
 
-RUN rm -f /usr/bin/awk /bin/grep \
-    && rm -rf /var/cache/apk/*
+RUN rm -f /usr/bin/awk /bin/grep
 
 # Tailon will return a 401 Unauthorized
 HEALTHCHECK --interval=30s --timeout=3s --retries=3 \
