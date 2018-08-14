@@ -13,4 +13,4 @@ RUN rm -f /usr/bin/awk /bin/grep
 HEALTHCHECK --interval=30s --timeout=3s --retries=3 \
   CMD curl -o -I -L -s -w "%{http_code}" http://localhost || exit 1
 
-CMD tailon -c /etc/tailon/tailon-config.yml
+CMD ["tailon", "-c", "/etc/tailon/tailon-config.yml"]
