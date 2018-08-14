@@ -1,0 +1,11 @@
+.git
+.env
+
+*.adoc
+
+Jenkinsfile
+docker-compose.yml
+
+*.iml
+.idea
+.project
