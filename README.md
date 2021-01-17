@@ -22,7 +22,7 @@ files:
 
 http-auth: basic             # enable authentication (optional)
 users:                       # password access (optional)
-  myuser: CHANGEME
+  username: CHANGEME_password
 ```
 
 ## Start Service
