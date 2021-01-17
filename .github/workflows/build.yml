@@ -1,0 +1,22 @@
+name: Build Tailon image
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+jobs:
+  python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: brpaz/hadolint-action@master
+
+      - name: Build and push Docker images
+        uses: docker/build-push-action@v1
+        with:
+          username: vietnem
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          repository: vietnem/tailon
+          tag_with_ref: true
