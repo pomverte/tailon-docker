@@ -3,7 +3,7 @@ name: Build Tailon image
 on:
   workflow_dispatch:
   push:
-    branches: [main]
+    branches: [master]
 
 jobs:
   python:
