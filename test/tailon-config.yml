@@ -1,0 +1,15 @@
+---
+bind: 0.0.0.0:80
+allow-transfers: true
+follow-names: false
+relative-root: ""
+commands: [tail, grep, awk]
+tail-lines: 100
+wrap-lines: false
+
+files:
+  - "/logs/*.log"
+
+http-auth: basic
+users:
+  foo: bar
