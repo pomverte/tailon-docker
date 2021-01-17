@@ -1,12 +1,13 @@
-= Tailon
+# Tailon container image
+
+![](https://img.shields.io/badge/Tailon-1.4.2-orange)
 
 https://tailon.readthedocs.io
 
-== Configuration
+## Configuration
 
-.tailon-config.yml
-[source,yaml]
-----
+tailon-config.yml
+```yaml
 ---
 bind: 0.0.0.0:80             # address and port to bind on
 allow-transfers: true        # allow log file downloads
@@ -22,33 +23,30 @@ files:
 http-auth: basic             # enable authentication (optional)
 users:                       # password access (optional)
   myuser: CHANGEME
-----
+```
 
-
-== Start Service
+## Start Service
 
 IMPORTANT: add a dummy file in the log directory otherwise Tailon won't start !
 
-=== Docker CLI
+### Docker CLI
 
-----
-docker image build -t vietnem/tailon .
+```
+docker container run -d -it -p 80:80 \
+    -v /path/to/tailon-config.yml:/etc/tailon/tailon-config.yml \
+    -v /path/to/logs:/logs \
+    --name tailonme \
+    vietnem/tailon:latest
+```
 
-docker container run -d -it -p 80:80 -v /path/to/tailon-config.yml:/etc/tailon/tailon-config.yml -v /path/to/logs:/logs --name tailonme vietnem/tailon:latest
+### Docker Compose
 
-docker container ls -a
-----
-
-=== Docker Compose
-
-.docker-compose.yml
-[source,yaml]
-----
+docker-compose.yml
+```yaml
 ---
 version: '3'
 services:
   tailon:
-    build: .
     image: vietnem/tailon:latest
     container_name: tailon
     ports:
@@ -56,6 +54,8 @@ services:
     volumes:
       - /path/to/logs:/logs:ro
       - /path/to/tailon-config.yml:/etc/tailon/tailon-config.yml
-----
+```
 
- docker-compose up -d
+```
+docker-compose up -d
+```
