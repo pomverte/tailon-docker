@@ -6,7 +6,7 @@ EXPOSE 80
 RUN apk update \
   && apk add grep gawk \
   && apk add curl \
-  && pip install tailon
+  && pip install tailon==1.4.2
 
 RUN rm -f /usr/bin/awk /bin/grep \
   && rm -rf /var/cache/apk/*
