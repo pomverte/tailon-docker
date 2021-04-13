@@ -4,6 +4,8 @@
 
 https://tailon.readthedocs.io
 
+UPDATE: consider using the official image from [gvalkov/tailon](https://github.com/gvalkov/tailon)
+
 ## Configuration
 
 tailon-config.yml
