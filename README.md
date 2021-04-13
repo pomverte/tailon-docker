@@ -1,6 +1,6 @@
 # Tailon container image
 
-![](https://img.shields.io/badge/Tailon-1.4.2-orange)
+![](https://img.shields.io/badge/Tailon-1.4.3-orange)
 
 https://tailon.readthedocs.io
 
